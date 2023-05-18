@@ -1,0 +1,32 @@
+:root {
+    --main-width: 1200px;
+    --medium-width-coef: 0.75;
+    --small-width-coef: 0.5;
+}
+
+.mainWidth {
+    width: min(var(--main-width), 100%);
+    margin: auto;
+}
+
+.mediumWidth {
+    width: min(calc(var(--mainWidth) * var(--medium-width-coef)), 100%);
+}
+
+.smallWidth {
+    width: min(calc(var(--mainWidth) * var(--small-width-coef)), 100%);
+}
+
+:root {
+    --mainWidth: 1400px;
+    --medium-width-coef: 0.75;
+    --small-width-coef: 0.5;
+
+    --large-header: 100vh;
+    --medium-header-coef: 0.75;
+    --small-header-coef: 0.5;
+
+    --section100vh: 100vh;
+    --medium-section-coef: 0.75;
+    --small-section-coef: 0.5;
+}

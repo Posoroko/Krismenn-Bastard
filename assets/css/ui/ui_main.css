@@ -1,0 +1,17 @@
+@import url('@/assets/css/ui/buttons.css');
+@import url('@/assets/css/ui/boardStyles.css');
+@import url('@/assets/css/ui/iconStyles.css');
+
+:root {
+    --page-padding: clamp(10px, 3vw, 30px);
+    --console-height: 180px;
+}
+
+
+.bastardAppContainer {
+    height: 100vh;
+    padding: var(--page-padding);
+    display: flex;
+    flex-direction: column;
+    gap: var(--page-padding);
+}

@@ -1,0 +1,35 @@
+:root {
+    --red-light: #9b341a;
+    --red-default: #6F2513;
+    --red-dark: #4b1a0d;
+
+    --orange-light: #a85b24;
+    --orange-default: #8D4612;
+    --orange-dark: #5f390c;
+
+    --green-light: #26948b;
+    --green-default: #1A726A;
+    --green-dark: #124e49;
+
+    --color-a: #A6A49F;
+    --color-b: #706555;
+    --color-c: #3F3B36;
+    --color-d: #34312C;
+    --color-e: #333333;
+}
+
+body {
+    background-color: var(--color-c);
+}
+
+.boardColor {
+    background-color: var(--color-a);
+}
+
+* {
+    color: var(--color-e);
+}
+
+
+
+
