@@ -1,18 +1,24 @@
 <template>
     <section class="boardMain_container boardStyles">
-        <div class="boardMain_contentBox relative">
-            <BoardIconLayerMain :selectedIconPage="selectedIconPage" />
-        </div>
+        <div class="full">
+            <div class="boardTexture"></div>
+
+            <div class="boardMain_contentBox relative">
+                <BoardIconLayerMain :selectedIconPage="selectedIconPage" />
+            </div>
         
-        <div class="boardMain_pageBrowserBox flex justifyCenter alignCenter gap30">
-            <button class="pageArrow icon pointer h100 flex alignCenter" :class="{ 'faded' : selectedIconPage == 0}" @click="browsePages" data-way="down">
-                    arrow_back
-            </button>
-            <p class="pageNum centered h100">{{ `${selectedIconPage + 1}/${maxPage + 1}` }}</p>
-            <button class="pageArrow icon pointer h100" :class="{ 'faded' : selectedIconPage == maxPage}" @click="browsePages" data-way="up">
-                arrow_forward
-            </button>
+            <div class="boardMain_pageBrowserBox flex justifyCenter alignCenter gap30">
+                <button class="pageArrow icon pointer h100 flex alignCenter" :class="{ 'faded': selectedIconPage == 0 }" @click="browsePages" data-way="down">
+                        arrow_back
+                </button>
+                <p class="pageNum centered h100">{{ `${selectedIconPage + 1}/${maxPage + 1}` }}</p>
+                <button class="pageArrow icon pointer h100" :class="{ 'faded': selectedIconPage == maxPage }" @click="browsePages" data-way="up">
+                    arrow_forward
+                </button>
+            </div>
         </div>
+
+        <BoardMenuMain v-if="selectedBoard == 'menu'" />
     </section>
 
 </template>
@@ -20,6 +26,7 @@
 <script setup>
 const selectedIconPage = useState('selectedPage', () => 0)
 const maxPage = useState('maxPage', () => 0)
+const selectedBoard = useState('selectedBoard', () => "icons")
 
 const browsePages = (e) => {
     const way = e.currentTarget.getAttribute('data-way')
@@ -37,7 +44,7 @@ const browsePages = (e) => {
 
 <style scoped>
 .boardMain_container {
-    height: calc(100% - var(--console-height));
+    flex-grow: 1;
     position: relative;
     overflow: hidden;
 }

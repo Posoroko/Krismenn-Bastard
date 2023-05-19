@@ -19,7 +19,8 @@
     cursor: pointer;
     /* pointer-events: all; */
 }
-.iconSVG_background {
+.iconSVG_background,
+.playerIcon_background {
     fill: transparent;
 }
 
@@ -40,3 +41,5 @@
 .iconSVG_path {
     transition: 300ms ease;
 }
+
+

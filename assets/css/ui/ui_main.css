@@ -9,9 +9,10 @@
 
 
 .bastardAppContainer {
-    height: 100vh;
+    height: min(100vh, 1080px);
     padding: var(--page-padding);
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
     gap: var(--page-padding);
 }

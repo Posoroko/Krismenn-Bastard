@@ -1,5 +1,5 @@
 <template>
-    <div class="full flex alignCenter justifyCenter gap20">
+    <div class="full flex alignCenter justifyCenter gap5">
         <div class="filter" :class="{ 'active' : selectedFilter == 'video'}" @click="handleFilterClick('video')">
             <IconMediaMain>
                 <IconMediaVideo />
