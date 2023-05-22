@@ -5,30 +5,22 @@
         <div class="consoleDrawer" 
             :class="[   { 'position_menu' : selectedConsoleBoard == 'menu'},
                         { 'position_dashboard' : selectedConsoleBoard == 'dashboard'}]">
-            <div class="consoleBoard flex justifyCenter">        
-                <div class="dashBoard_centerBox">
-                    <div class="flex">
-                        <button class="consoleBoardBtn active">
-                            Bastard
-                        </button>
-                        <button class="consoleBoardBtn inactive pointer"  @click="selectedConsoleBoard = 'menu'">
-                            menu
-                        </button>
-                    </div>
+            <div class="consoleBoard flex column">        
+                <div class="topBox flex w100 justifyCenter">
+                    <button class="consoleBoardBtn active">
+                        Bastard
+                    </button>
 
-                    <ConsolePlayerScreen />
-
-                    <div class="">
-                        <ConsolePlayerMain />
-                    </div>
-                    
-                    
+                    <button class="consoleBoardBtn inactive pointer"  @click="selectedConsoleBoard = 'menu'">
+                        menu
+                    </button>
                 </div>
+
+                <ConsolePlayerMain />
+
             </div>
 
             <div class="consoleBoard flex justifyCenter">
-
-
                 <div class="menuBoard_centerBox ">
                     <div class="flex">
                         <button class="consoleBoardBtn inactive pointer" @click="selectedConsoleBoard = 'dashboard'">
@@ -113,16 +105,6 @@ const selectedConsoleBoard = useState('selectedConsoleBoard', () => "dashboard")
     background-color: rgba(212, 96, 0, 0.397);
 }
 
-.dashBoard_centerBox {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
-}
 .menuBoard_centerBox {
     width: 100%;
     height: 100%;

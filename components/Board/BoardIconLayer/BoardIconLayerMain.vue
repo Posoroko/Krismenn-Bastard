@@ -1,6 +1,7 @@
 <template>
     <div class="BoardIconLayer_AbsoluteBox">
-        <div class="iconLayerPage" :class="{ 'visible' : selectedIconPage == pageIndex}" v-for="(page, pageIndex) in pageCollection" :key="pageIndex">
+        <div class="iconLayerPage"  :class="{ 'visible' : selectedIconPage == pageIndex}" 
+                                    v-for="(page, pageIndex) in pageCollection" :key="pageIndex">
             <div class="container full flex justifyCenter">
 
                 <div class="iconLayerPageContent_4X5">
@@ -8,7 +9,9 @@
 
                         <IconMediaMain v-if="media"  
                             :mediaId="media.id"
-                            :mediaType="media.type"/>
+                            :mediaType="media.type"
+                            :pageIndex="pageIndex"
+                            :iconIndex="iconIndex"/>
                     </div>
                 </div>  
             </div>
@@ -42,9 +45,10 @@ const { data: medias } = await useAsyncData(
         return items.data
     }
 )
-mediaCollection.value = medias.value
+
 
 const pageCollection = newCollectionOfPages("boards20", medias.value)
+mediaCollection.value = pageCollection
 maxPage.value = pageCollection.length - 1
 
 

@@ -1,8 +1,6 @@
 <template>
-<div class="iconMediaBox relative centered full" :class="{'active' : selectedMedia == mediaId }" >
+<div class="iconMediaBox relative centered full" :class="{'active' : selectedMedia.id === mediaId }" >
     <div class="mediaIconSVGBox centered" 
-        :data-mediaId="mediaId" 
-        :data-mediaType="mediaType" 
         @click="handleIconSelection">
         
         <IconMediaSVG :mediaType="mediaType" />
@@ -15,14 +13,17 @@
 </template>
 
 <script setup>
-const selectedMedia = useState('selectedMedia', () => "")
+const selectedMedia = useState('selectedMedia', () => { return { id: "", title: "", type: "", file: "" } })
+const mediaCollection = useState('mediaCollection', () => [])
 
 const props = defineProps({
     mediaId: String,
-    mediaType: String
+    mediaType: String,
+    pageIndex: Number,
+    iconIndex: Number
 })
 const handleIconSelection = (e) => {
-    selectedMedia.value = e.currentTarget.getAttribute('data-mediaId')
+    selectedMedia.value = mediaCollection.value[props.pageIndex][props.iconIndex]
 }
 
 </script>

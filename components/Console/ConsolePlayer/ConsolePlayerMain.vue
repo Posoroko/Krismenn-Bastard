@@ -1,14 +1,17 @@
 <template>
-    <div class="full flex alignCenter justifyCenter">
+    <div class="consolePlayerBox flex w100 alignCenter justifyEvenly">
         <IconPlayerMain action="play" />
 
-        <!-- <IconPlayerMain action="pause" /> -->
+        <ConsolePlayerScreen />
 
         <IconPlayerMain action="eject" />
     </div>
 </template>
 
-<style>
-
+<style scoped>
+.consolePlayerBox {
+    flex-grow: 1;
+    padding-bottom: 15px;
+}
 
 </style>

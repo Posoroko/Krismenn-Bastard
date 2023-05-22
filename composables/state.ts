@@ -10,8 +10,8 @@ export const useMaxPage = () => {
     return useState<number>('maxPage', () => 0)
 }
 
-export const useSelectedMedia = () => {
-    return useState<string>('selectedMedia', () => "")
+export const useisPlaying = () => {
+    return useState<boolean>('isPlaying', () => false)
 }
 
 export const useSelectedConsoleBoard = () => {
@@ -28,4 +28,7 @@ type MediaItem = Object;
 
 export const useMediaCollection = () => {
     return useState < Array<MediaItem>>('mediaCollection', () => [])
+}
+export const useSelectedMedia = () => {
+    return useState<MediaItem>('selectedMedia', () => { return { id: "", title: "", type: "", file: "" }})
 }
