@@ -10,14 +10,22 @@ export const useMaxPage = () => {
     return useState<number>('maxPage', () => 0)
 }
 
-export const useSelectedMediaIcon = () => {
-    return useState<string>('selectedMediaIcon', () => "")
-}
-
-export const useSelectedFilter = () => {
-    return useState<string>('selectedFilter', () => "all")
+export const useSelectedMedia = () => {
+    return useState<string>('selectedMedia', () => "")
 }
 
 export const useSelectedConsoleBoard = () => {
     return useState<string>('selectedConsoleBoard', () => "dashboard")
+}
+// type MediaItem = {
+//     id: string,
+//     name: string,
+//     type: string,
+//     url: string,
+//     media: string
+// }
+type MediaItem = Object;
+
+export const useMediaCollection = () => {
+    return useState < Array<MediaItem>>('mediaCollection', () => [])
 }

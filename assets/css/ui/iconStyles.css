@@ -1,45 +1,6 @@
-
-.iconTile.active .iconMediaBox .selectionCircleBox{
-    border: 1px solid red;
-}
-.iconTile.faded .iconMediaBox .iconSVG .iconSVG_path{
-    fill: var(--color-b);
-}
 .iconLayerPageContent_4X5 .iconTile {
     width: 25%;
     height: 20%;
-}
-.iconMediaBox {
-    display: grid;
-    place-items: center;
-}
-
-.iconSVG {
-    height: 32px;
-    cursor: pointer;
-    /* pointer-events: all; */
-}
-.iconSVG_background,
-.playerIcon_background {
-    fill: transparent;
-}
-
-.iconSVG_path {
-    fill: var(--color-e);
-}
-
-
-
-
-
-.iconSVG:hover .iconSVG_path {
-    fill: var(--color-b);
-    transition: 150ms ease;
-    
-}
-
-.iconSVG_path {
-    transition: 300ms ease;
 }
 
 

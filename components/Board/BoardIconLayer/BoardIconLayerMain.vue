@@ -4,30 +4,11 @@
             <div class="container full flex justifyCenter">
 
                 <div class="iconLayerPageContent_4X5">
-                    <div v-for="(media, iconIndex) in page" :key="iconIndex" class="iconTile"
-                        :data-iconId="`${pageIndex}${iconIndex}`" 
-                        :data-mediaId="media.id"
-                        :class="[
-                            { 'active': selectedMediaIcon == `${pageIndex}${iconIndex}` },
-                            { 'faded': selectedFilter != media.media && selectedFilter != 'all'}
-                        ]" 
-                        @click="handleIconSelection">
+                    <div v-for="(media, iconIndex) in page" :key="iconIndex" class="iconTile">
 
-                        <IconMediaMain v-if="media && media.media == 'video'"  >
-                            <IconMediaVideo />
-                        </IconMediaMain>
-
-                        <IconMediaMain v-if="media && media.media == 'audio'" >
-                            <IconMediaAudio />
-                        </IconMediaMain>
-
-                        <IconMediaMain v-if="media && media.media == 'image'" >
-                            <IconMediaPhoto />
-                        </IconMediaMain>
-
-                        <IconMediaMain v-if="media && media.media == 'text'" >
-                            <IconMediaVideo />
-                        </IconMediaMain>
+                        <IconMediaMain v-if="media"  
+                            :mediaId="media.id"
+                            :mediaType="media.type"/>
                     </div>
                 </div>  
             </div>
@@ -40,9 +21,10 @@ import { newCollectionOfPages } from '@/utils/functions.js'
 const appConfig = useAppConfig()
 
 const selectedIconPage = useState('selectedPage', () => 0)
-const selectedMediaIcon = useState('selectedMediaIcon', () => "")
+const selectedMedia = useState('selectedMedia', () => "")
+
 const maxPage = useState('maxPage', () => 0)
-const selectedFilter = useState('selectedFilter', () => "all")
+const mediaCollection = useState('mediaCollection', () => [])
 
 const props = defineProps({
     selectedIconPage: {
@@ -60,13 +42,12 @@ const { data: medias } = await useAsyncData(
         return items.data
     }
 )
+mediaCollection.value = medias.value
 
 const pageCollection = newCollectionOfPages("boards20", medias.value)
 maxPage.value = pageCollection.length - 1
 
-const handleIconSelection = (e) => {
-    selectedMediaIcon.value = e.currentTarget.getAttribute('data-iconId')
-}
+
 </script>
 
 <style scoped>
