@@ -16,6 +16,8 @@
     --color-c: #3F3B36;
     --color-d: #34312C;
     --color-e: #333333;
+
+    --backdrop: #333333be;
 }
 
 body {
@@ -30,6 +32,14 @@ body {
     color: var(--color-e);
 }
 
+.lightText {
+    color: var(--color-a);
+}
 
+.backdropColor {
+    background-color: var(--backdrop);
 
-
+}
+.backdropBlur {
+    backdrop-filter: blur(2px);
+}

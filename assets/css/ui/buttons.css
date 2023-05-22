@@ -1,2 +1,8 @@
-
+.topRightButton {
+    font-size: 30px;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+}
 

@@ -17,7 +17,7 @@
                 </button>
             </div>
         </div>
-
+        <BoardViewer />
         <BoardMenuMain v-if="selectedBoard == 'menu'" />
     </section>
 

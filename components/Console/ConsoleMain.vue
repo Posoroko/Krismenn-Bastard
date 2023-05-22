@@ -5,50 +5,53 @@
         <div class="consoleDrawer" 
             :class="[   { 'position_menu' : selectedConsoleBoard == 'menu'},
                         { 'position_dashboard' : selectedConsoleBoard == 'dashboard'}]">
-            <div class="consoleBoard flex justifyCenter">
-                <div class="dashboard_leftBox">
-
-                </div>
-        
+            <div class="consoleBoard flex justifyCenter">        
                 <div class="dashBoard_centerBox">
-                    <button class="consoleBoardBtn active">
-                        Bastard
-                    </button>
-                    
-                    <button class="consoleBoardBtn inactive pointer"  @click="selectedConsoleBoard = 'menu'">
-                        menu
-                    </button>
-                </div>
+                    <div class="flex">
+                        <button class="consoleBoardBtn active">
+                            Bastard
+                        </button>
+                        <button class="consoleBoardBtn inactive pointer"  @click="selectedConsoleBoard = 'menu'">
+                            menu
+                        </button>
+                    </div>
 
-                <div class="dashboard_rightBox">
-                    <ConsolePlayerMain />
+                    <ConsolePlayerScreen />
+
+                    <div class="">
+                        <ConsolePlayerMain />
+                    </div>
+                    
+                    
                 </div>
             </div>
 
             <div class="consoleBoard flex justifyCenter">
-                <div class="menuBoard_leftBox">
 
-                </div>
 
                 <div class="menuBoard_centerBox ">
-                    <button class="consoleBoardBtn active" @click="selectedConsoleBoard = 'menu'">
-                        menu
-                    </button>
+                    <div class="flex">
+                        <button class="consoleBoardBtn inactive pointer" @click="selectedConsoleBoard = 'dashboard'">
+                            Bastard
+                        </button>
 
-                <div class="menuTabBox flex justifyEvenly w100">
-                    <p>about</p>
-                    <p>Théâtre Piba</p>
-                    <p>krismenn.com</p>
-                </div>
+                        <button class="consoleBoardBtn active" @click="selectedConsoleBoard = 'menu'">
+                            menu
+                        </button>
+                    </div>
 
-                    <button class="consoleBoardBtn inactive pointer" @click="selectedConsoleBoard = 'dashboard'">
-                        Bastard
-                    </button> 
+                    <div class="menuTabBox flex justifyEvenly w100">
+                        <p>about</p>
+                        <p>Théâtre Piba</p>
+                        <p>krismenn.com</p>
+                    </div>
+
+
+
+                    
                 </div> 
                 
-                <div class="menuBoard_rightBox">
 
-                </div>
             </div>
         </div>
     </section>
@@ -109,20 +112,16 @@ const selectedConsoleBoard = useState('selectedConsoleBoard', () => "dashboard")
     right: 30%;
     background-color: rgba(212, 96, 0, 0.397);
 }
-.dashboard_leftBox, .dashboard_rightBox {
-    width: 20%;
-    /* background-color: #2e060638; */
-    flex-grow: 1;
-}
+
 .dashBoard_centerBox {
-    width:30%;
+    width: 100%;
     height: 100%;
-    /* padding: 10px; */
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
 }
 .menuBoard_centerBox {
     width: 100%;
@@ -130,9 +129,9 @@ const selectedConsoleBoard = useState('selectedConsoleBoard', () => "dashboard")
     padding: 10px;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
+    justify-content: flex-start;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 </style>
