@@ -24,7 +24,7 @@ import { newCollectionOfPages } from '@/utils/functions.js'
 const appConfig = useAppConfig()
 
 const selectedIconPage = useState('selectedPage', () => 0)
-const selectedMedia = useState('selectedMedia', () => "")
+const selectedMedia = useState('selectedMedia', () => { return { id: "", title: "", type: "", file: "" } })
 
 const maxPage = useState('maxPage', () => 0)
 const mediaCollection = useState('mediaCollection', () => [])

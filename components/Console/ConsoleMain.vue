@@ -49,7 +49,7 @@
     </section>
 </template>
 <script setup>
-const selectedMediaIcon = useState('selectedMediaIcon', () => "")
+const selectedMediaIcon = useState('selectedMediaIcon', () => { return { id: "", title: "", type: "", file: "" } })
 const selectedFilter = useState('selectedFilter', () => "all")
 const selectedBoard = useState('selectedBoard', () => "icons")
 const selectedConsoleBoard = useState('selectedConsoleBoard', () => "dashboard")

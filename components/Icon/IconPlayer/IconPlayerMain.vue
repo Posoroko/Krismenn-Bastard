@@ -27,7 +27,7 @@
     </button>
 </template>
 <script setup>
-const selectedMedia = useState('selectedMedia', () => '')
+const selectedMedia = useState('selectedMedia', () => { return { id: "", title: "", type: "", file: "" }})
 const isPlaying = useState('isPlaying', () => false)
 
 const handleClick = (e) => {
@@ -52,11 +52,18 @@ const props = defineProps({
 .playerButton {
     height: 48px;
     width: 48px;
+    background-color: #ffffff11;
+    border: 1px solid #00000019;
     padding: 8px;
     border-radius: 8px;
     cursor: pointer;
     display: grid;
     place-items: center;
+    transition: 300ms ease;
+}
+.playerButton:hover {
+    background-color: #9e9e9e2f;
+    transition: 300ms ease;
 }
 .playerButtonSVG {
     height: 24px;

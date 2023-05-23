@@ -1,14 +1,14 @@
 <template>
     <div class="playerScreenBox relative h100">
-        <ul class="playerScreenText flex column justifyEvenly h100" v-if="selectedMedia">
-            <li>{{ `id: ${selectedMedia.id.slice(0, 6)}.bst` }}</li>
-            <li>type: {{ selectedMedia.type }}</li>
-            titre: {{ selectedMedia.title }}
+        <ul class="playerScreenText flex column justifyEvenly h100" v-if="selectedMedia.id">
+            <li> <span>id: </span> <span>{{ `${selectedMedia.id.slice(0, 6)}.bst` }}</span></li>
+            <li><span>type: </span><span>{{ selectedMedia.type }}</span></li>
+            <li><span>titre: </span><span>{{ selectedMedia.title }}</span></li>
         </ul>
     </div>
 </template>
 <script setup>
-const selectedMedia = useState('selectedMedia', () => "")
+const selectedMedia = useState('selectedMedia', () => { return { id: "", title: "", type: "", file: "" } })
 </script>
 
 <style scoped>
