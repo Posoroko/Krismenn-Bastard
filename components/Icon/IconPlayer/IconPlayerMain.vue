@@ -27,17 +27,23 @@
     </button>
 </template>
 <script setup>
+
 const selectedMedia = useState('selectedMedia', () => { return { id: "", title: "", type: "", file: "" }})
 const isPlaying = useState('isPlaying', () => false)
 
 const handleClick = (e) => {
     const action = e.currentTarget.dataset.action
     if(action == 'eject' && isPlaying.value) {
-        selectedMedia.value = ''
+
+        selectedMedia.value = { id: '', title: '', type: '', file: '' }
+        
         isPlaying.value = false
+
         return
     }
     if(action == 'play' && selectedMedia.value.id) {
+        localStorage.setItem(selectedMedia.value.id, true)
+
         isPlaying.value = true
     }
 }

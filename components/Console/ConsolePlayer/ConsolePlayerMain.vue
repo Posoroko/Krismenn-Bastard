@@ -7,7 +7,9 @@
         <IconPlayerMain action="eject" />
     </div>
 </template>
+<script setup>
 
+</script>
 <style scoped>
 .consolePlayerBox {
     flex-grow: 1;

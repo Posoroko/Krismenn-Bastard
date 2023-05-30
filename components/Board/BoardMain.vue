@@ -17,8 +17,10 @@
                 </button>
             </div>
         </div>
+        <LazyBoardDoodleLayer />
         <BoardViewer />
         <BoardMenuMain v-if="selectedBoard == 'menu'" />
+        
     </section>
 
 </template>

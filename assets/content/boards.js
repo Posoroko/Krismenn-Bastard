@@ -44,6 +44,49 @@ export const boards20 = [
     }
 ]
 
+export const boards20Plus = [
+    {
+        count: 11,
+        board: [
+            {icon: true, doodle:  null},    {icon: true, doodle:  null},    {icon: true, doodle:  null},    {icon: true, doodle:  null},
+            {icon: false, doodle: null},    {icon: false, doodle: null},    {icon: false, doodle: null},    {icon: false, doodle: null},
+            {icon: false, doodle: "arr01"},   {icon: false, doodle: null},    {icon: false, doodle: "star01"},  {icon: false, doodle: null},
+            {icon: false, doodle: null},    {icon: false, doodle: null},    {icon: false, doodle: null},    {icon: false, doodle: null},
+            {icon: false, doodle: null},    {icon: false, doodle: null},    {icon: false, doodle: null},    {icon: false, doodle: null},
+        ]
+    },
+    {
+        count: 13,
+        board: [
+            true, true, true, true,
+            true, true, true, true,
+            false, true, false, true,
+            false, true, false, true,
+            false, true, false, false,
+        ]
+    },
+    {
+        count: 12,
+        board: [
+            true, true, true, true,
+            true, true, true, true,
+            false, true, false, true,
+            false, false, false, true,
+            false, false, false, true,
+        ]
+    },
+    {
+        count: 12,
+        board: [
+            true, true, true, true,
+            true, false, true, true,
+            true, true, true, false,
+            true, false, false, false,
+            true, false, false, false,
+        ]
+    }
+]
+
 export const boards = {
     boards20: boards20
 }

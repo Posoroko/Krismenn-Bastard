@@ -26,9 +26,12 @@ export const useSelectedConsoleBoard = () => {
 // }
 type MediaItem = Object;
 
+
 export const useMediaCollection = () => {
     return useState < Array<MediaItem>>('mediaCollection', () => [])
 }
 export const useSelectedMedia = () => {
     return useState<MediaItem>('selectedMedia', () => { return { id: "", title: "", type: "", file: "" }})
 }
+
+

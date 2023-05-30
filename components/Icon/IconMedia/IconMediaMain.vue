@@ -6,15 +6,26 @@
         <IconMediaSVG :mediaType="mediaType" />
     </div>
 
-    <div class="selectionCircleBox">
+    <div class="frameBox absoluteFull" :class="{ 'active': mediaId && mediaId.slice(-1) % 2 == 0 }">
+        <img src="/images/doodles/frame2.png" class="objectFitContained" alt="">
+    </div>
 
+    <div class="eyeBox absoluteFull" v-if="mediaWasSeen == 'true'">
+        <img src="/images/doodles/icons/eye.png" class="objectFitContained" alt="">
+    </div>
+
+    <div class="selectionCircleBox">
+        <img src="/images/doodles/selection-circle.png" class="objectFitContained" alt="">
     </div>
 </div>
 </template>
 
 <script setup>
+
 const selectedMedia = useState('selectedMedia', () => { return { id: "", title: "", type: "", file: "" } })
 const mediaCollection = useState('mediaCollection', () => [])
+
+
 
 const props = defineProps({
     mediaId: String,
@@ -22,19 +33,42 @@ const props = defineProps({
     pageIndex: Number,
     iconIndex: Number
 })
+const mediaWasSeen = ref(localStorage.getItem(props.mediaId))
+
+// trigger the update of the mediaWasSeen value when the selectedMedia changes
+watch(() => selectedMedia.value, (newValue, oldValue) => {
+    console.log(newValue.id, oldValue.id)
+    if (newValue.id == '') {
+        mediaWasSeen.value = localStorage.getItem(props.mediaId)
+    }
+})
 const handleIconSelection = (e) => {
     selectedMedia.value = mediaCollection.value[props.pageIndex][props.iconIndex]
 }
 
+
 </script>
 
 <style scoped>
+.eyeBox {
+    pointer-events: none;
+}
+.frameBox {
+    display: none;
+    pointer-events: none;
+}
+.frameBox.active{
+    display: block;
+}
+.selectionCircleBox {
+    display: none;
+}
 .iconMediaBox.active .selectionCircleBox{
-    border: 1px solid red;
+    display: block;
 }
 .mediaIconSVGBox {
-    height: 48px;
-    width: 48px;
+    height: 52px;
+    width: 52px;
     cursor: pointer;
 }
 .selectionCircleBox {
