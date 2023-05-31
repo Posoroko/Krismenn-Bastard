@@ -124,5 +124,7 @@ const handleClick = () => {
     align-items: center;
     gap: 25px;
 }
-
+.menuTabBox * {
+    color: #F1E897;
+}
 </style>

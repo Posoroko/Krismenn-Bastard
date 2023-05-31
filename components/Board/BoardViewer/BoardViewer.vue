@@ -4,14 +4,18 @@
         
         <!-- <IconMiscCloseButton /> -->
 
-        <div class="boardViewer_contentBox centered" ref="boardViewer_contentBox">
-            <p class="mediaText" v-if="selectedMedia.text" ref="mediaText">
+        <div class="boardViewer_contentBox flex justifyCenter alignCenter" ref="boardViewer_contentBox">
+            <div class="mediaBackdrop mediaTextBackdrop centered" v-if="selectedMedia.text">
+                <p class="mediaText" ref="mediaText">
                 
-            </p>
+                </p>
+            </div>
 
-            <img class="viewerImg" v-if="selectedMedia.type == 'image'" :src="`${appConfig.directus.assets}${selectedMedia.file}?key=viewer800`" alt="">
-            <!-- <img class="viewerImg" v-if="selectedMedia.type == 'video'" :src="`${appConfig.directus.assets}${selectedMedia.file}?key=viewer800`" alt=""> -->
-            <video autoplay loop class="viewerVideo" v-if="selectedMedia.type == 'video'" :src="`${appConfig.directus.assets}${selectedMedia.file}`"></video> 
+            <div class="mediaImageBackdrop centered" v-else>
+                <img class="viewerImg" v-if="selectedMedia.type == 'image'" :src="`${appConfig.directus.assets}${selectedMedia.file}?key=viewer800`" alt="">
+                <video autoplay loop class="viewerVideo" v-if="selectedMedia.type == 'video'" :src="`${appConfig.directus.assets}${selectedMedia.file}`"></video> 
+            </div>
+            
         </div>
     </div>
 </template>
@@ -73,7 +77,7 @@ const animateMediaText = () => {
 .boardViewerBox {
     height: 100%;
     width: 100%;
-    padding: 10px;
+    /* padding: 10px; */
     
     position: absolute;
     top:0;
@@ -93,37 +97,82 @@ const animateMediaText = () => {
     transition: 300ms ease;
 }
 .boardViewer_contentBox {
-    width: min(750px, 100%);
+    width: 100%;
     height: 100%;
     
-    background-color: var(--color-a);
-    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.26);
+    padding: 5px;
+    /* border-radius: 25px; */
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.285);
     pointer-events: none;
     overflow: hidden;
 }
-.boardViewer_contentBox .mediaText {
-    width: min(450px, 100%);
-    max-height: min(450px, 100%);
+.mediaText {
+    
+    
     padding: 20px;
     font-size: 18px;
     font-weight: 700;
     white-space: pre-wrap;
     overflow: scroll;
 }
-.mediaTextSpan {
-    opacity: 1;
-    transition: 300ms;
+.mediaImageBackdrop {
+    width: min(800px, 100%);
+    height: min(600px, 100%);
 }
-.viewerImg, .viewerVideo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.mediaTextBackdrop {
+    width: min(450px, 100%);
+    height: min(600px, 100%);
+    background-color: var(--color-a);
+    border-radius: 10px;
+    /* animation: flicker 28ms infinite; */
+    text-shadow: 1px 1px 2px rgba(255, 218, 188, 0.678);
+    filter: blur(0.5px) brightness(0.9) contrast(2);
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.775;
+        text-shadow: 1px 1px 2px rgb(255, 218, 188);
+    }
+    50% {
+        opacity: 0.8;
+        text-shadow: 1px 1px 2px rgba(255, 220, 192, 0);
+    }
+    100% {
+        opacity: 0.79;
+        text-shadow: 1px 1px 2px rgb(255, 220, 192);
+    }
+}
+@keyframes imageFlicker {
+    0% {
+        /* opacity: 0.98; */
+        filter: blur(0.6px) brightness(0.9) sepia(50%) contrast(1);
+    }
+    50% {
+        /* opacity: 1; */
+        filter: blur(0.6px) brightness(0.9) sepia(50%) contrast(1);
+    }
+    100% {
+        /* opacity: 0.98; */
+        filter: blur(0.6px) brightness(0.9) sepia(50%) contrast(1);
+    }
 }
 .viewerImg{
-    filter: blur(0.6px) brightness(0.9) contrast(1.2);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: contain;
+    /* animation: imageFlicker 45ms infinite; */
+    filter: blur(0.6px) brightness(0.9) sepia(50%) contrast(1);
 }
 .viewerVideo {
-    filter: blur(0.6px) brightness(0.8) contrast(1.5);
+    /* filter: blur(0.6px) brightness(0.8) contrast(1.5); */
+    filter: blur(0.6px) brightness(0.9) sepia(50%) contrast(1);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    animation: flicker 28ms infinite;
 }
 </style>

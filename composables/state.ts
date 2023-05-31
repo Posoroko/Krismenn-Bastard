@@ -34,4 +34,10 @@ export const useSelectedMedia = () => {
     return useState<MediaItem>('selectedMedia', () => { return { id: "", title: "", type: "", file: "" }})
 }
 
+export const useIntroPlaying = () => {
+    return useState<boolean>('introPlaying', () => true)
+}
 
+export const useIntroSlide = () => {
+    return useState<number>('introSlide', () => 1)
+}

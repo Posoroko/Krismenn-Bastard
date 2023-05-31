@@ -20,6 +20,9 @@
 * { 
     font-family: 'Raleway', sans-serif;
 }
+.lightText {
+    color: var(--color-a);
+}
 
 .headerTitleSize {
     font-size: 72px;
