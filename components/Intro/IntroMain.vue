@@ -36,6 +36,7 @@ const changeSlide = () => {
 <style scoped>
 .introContainer {
     background-color: var(--color-e);
+    overflow: hidden;
 }
 .introText {
     color: var(--color-a);
