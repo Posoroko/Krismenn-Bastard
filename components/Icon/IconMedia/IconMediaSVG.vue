@@ -1,9 +1,11 @@
 <template>
-    <img src="/images/icons/round2.png" class="mediaIconImg" v-if="mediaType == 'image'" alt="">
+    <div class="" @click="handleIconSelection">
+        <img src="/images/icons/round2.png" class="mediaIconImg" v-if="mediaType == 'image'" alt="">
 
-    <img src="/images/icons/triangle1.png" class="mediaIconImg" v-if="mediaType == 'text'" alt="">
+        <img src="/images/icons/triangle1.png" class="mediaIconImg" v-if="mediaType == 'text'" alt="">
 
-    <img src="/images/icons/square1.png" class="mediaIconImg" v-if="mediaType == 'video'" alt="">
+        <img src="/images/icons/square1.png" class="mediaIconImg" v-if="mediaType == 'video'" alt="">
+    </div>
 </template>
 
 
@@ -11,6 +13,13 @@
 const props = defineProps({
     mediaType: String
 })
+
+const emit = defineEmits(['iconSelected'])
+
+const handleIconSelection = () => {
+    emit('iconSelected')
+}
+
 </script>
 
 <style scoped>

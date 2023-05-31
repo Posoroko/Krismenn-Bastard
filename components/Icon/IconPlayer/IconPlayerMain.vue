@@ -1,6 +1,6 @@
 <template>
-    <button class="playerButton">
-        <svg @click="handleClick" :data-action="action" version="1.1" class="playerButtonSVG ejectSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    <button class="playerButton" :data-action="action" @click="handleClick">
+        <svg version="1.1" class="playerButtonSVG ejectSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             	 viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
 
             <rect y="0.03" class="playerIcon_background" width="48" height="48"/>
@@ -35,9 +35,14 @@ const handleClick = (e) => {
     const action = e.currentTarget.dataset.action
     if(action == 'eject' && isPlaying.value) {
 
-        selectedMedia.value = { id: '', title: '', type: '', file: '' }
+        
         
         isPlaying.value = false
+
+        //  wait for the css animation to finish in BoardViewer component
+        setTimeout(() => {
+            selectedMedia.value = { id: '', title: '', type: '', file: '' }
+        }, 300)
 
         return
     }
@@ -58,7 +63,8 @@ const props = defineProps({
 .playerButton {
     height: 48px;
     width: 48px;
-    background-color: #ffffff11;
+    /* background-color: #ffffff11; */
+    background-color: #ffffff5d;
     border: 1px solid #00000019;
     padding: 8px;
     border-radius: 8px;
@@ -66,9 +72,11 @@ const props = defineProps({
     display: grid;
     place-items: center;
     transition: 300ms ease;
+    pointer-events: all;
 }
 .playerButton:hover {
-    background-color: #9e9e9e2f;
+    /* background-color: #9e9e9e2f; */
+    background-color: #9e9e9e60;
     transition: 300ms ease;
 }
 .playerButtonSVG {

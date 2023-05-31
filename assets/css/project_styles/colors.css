@@ -21,11 +21,19 @@
 }
 
 body {
-    background-color: var(--color-c);
+    /* background-color: var(--color-e); */
+
+    background-color: rgb(31, 31, 31);
 }
 
 .boardColor {
     background-color: var(--color-a);
+    box-shadow: inset 0px 0px 10px rgb(54, 37, 37);
+}
+.consoleColor {
+    background-color: var(--color-c);
+    border: 2px solid #4b3b3057;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.432);
 }
 
 * {

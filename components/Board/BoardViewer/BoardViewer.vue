@@ -1,8 +1,8 @@
 <template>
-    <div class="boardViewerBox backdropColor backdropBlur centered "
+    <div class="boardViewerBox backdropColor backdropBlur centered"
         :class="{ 'visible' : isPlaying }">
         
-        <IconMiscCloseButton />
+        <!-- <IconMiscCloseButton /> -->
 
         <div class="boardViewer_contentBox centered" ref="boardViewer_contentBox">
             <p class="mediaText" v-if="selectedMedia.text" ref="mediaText">
@@ -10,6 +10,8 @@
             </p>
 
             <img class="viewerImg" v-if="selectedMedia.type == 'image'" :src="`${appConfig.directus.assets}${selectedMedia.file}?key=viewer800`" alt="">
+            <!-- <img class="viewerImg" v-if="selectedMedia.type == 'video'" :src="`${appConfig.directus.assets}${selectedMedia.file}?key=viewer800`" alt=""> -->
+            <video autoplay loop class="viewerVideo" v-if="selectedMedia.type == 'video'" :src="`${appConfig.directus.assets}${selectedMedia.file}`"></video> 
         </div>
     </div>
 </template>
@@ -71,20 +73,27 @@ const animateMediaText = () => {
 .boardViewerBox {
     height: 100%;
     width: 100%;
-    padding: 20px;
-    opacity: 0;
+    padding: 10px;
+    
     position: absolute;
     top:0;
     left:0;
     pointer-events: none;
 }
 .boardViewerBox.visible {
-    padding: 20px;
-    opacity: 1;
+    
     pointer-events: all;
 }
+.boardViewerBox {
+    opacity: 0;
+    transition: 300ms ease;
+}
+.boardViewerBox.visible {
+    opacity: 1;
+    transition: 300ms ease;
+}
 .boardViewer_contentBox {
-    width: 100%;
+    width: min(750px, 100%);
     height: 100%;
     
     background-color: var(--color-a);
@@ -94,18 +103,27 @@ const animateMediaText = () => {
     overflow: hidden;
 }
 .boardViewer_contentBox .mediaText {
+    width: min(450px, 100%);
+    max-height: min(450px, 100%);
     padding: 20px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     white-space: pre-wrap;
+    overflow: scroll;
 }
 .mediaTextSpan {
     opacity: 1;
     transition: 300ms;
 }
-.viewerImg {
+.viewerImg, .viewerVideo {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.viewerImg{
+    filter: blur(0.6px) brightness(0.9) contrast(1.2);
+}
+.viewerVideo {
+    filter: blur(0.6px) brightness(0.8) contrast(1.5);
 }
 </style>

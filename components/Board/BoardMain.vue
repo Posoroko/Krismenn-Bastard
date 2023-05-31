@@ -1,5 +1,5 @@
 <template>
-    <section class="boardMain_container boardStyles">
+    <section class="boardMain_container boardStyles boardColor">
         <div class="full">
             <div class="boardTexture"></div>
 

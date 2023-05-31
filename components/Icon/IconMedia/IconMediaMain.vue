@@ -1,9 +1,8 @@
 <template>
 <div class="iconMediaBox relative centered full" :class="{'active' : selectedMedia.id === mediaId }" >
-    <div class="mediaIconSVGBox centered" 
-        @click="handleIconSelection">
+    <div class="mediaIconSVGBox centered" >
         
-        <IconMediaSVG :mediaType="mediaType" />
+        <IconMediaSVG :mediaType="mediaType" @iconSelected="handleIconSelection" />
     </div>
 
     <div class="frameBox absoluteFull" :class="{ 'active': mediaId && mediaId.slice(-1) % 2 == 0 }">
@@ -37,12 +36,12 @@ const mediaWasSeen = ref(localStorage.getItem(props.mediaId))
 
 // trigger the update of the mediaWasSeen value when the selectedMedia changes
 watch(() => selectedMedia.value, (newValue, oldValue) => {
-    console.log(newValue.id, oldValue.id)
+
     if (newValue.id == '') {
         mediaWasSeen.value = localStorage.getItem(props.mediaId)
     }
 })
-const handleIconSelection = (e) => {
+const handleIconSelection = () => {
     selectedMedia.value = mediaCollection.value[props.pageIndex][props.iconIndex]
 }
 
@@ -52,6 +51,8 @@ const handleIconSelection = (e) => {
 <style scoped>
 .eyeBox {
     pointer-events: none;
+    opacity: 0.8;
+    filter: brightness(1.3);
 }
 .frameBox {
     display: none;

@@ -3,8 +3,7 @@
     /* background-color: var(--color-a); */
     
     border-radius: 10px;
-    box-shadow: inset 0px 0px 10px rgb(54, 37, 37);
-    background-color: var(--color-a);
+    
     position: relative;
 }
 

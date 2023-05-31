@@ -1,6 +1,6 @@
 <template>
-    <section class="consoleContainer boardStyles relative">
-        <div class="boardTexture"></div>
+    <section class="consoleContainer boardStyles relative consoleColor">
+        <!-- <div class="boardTexture"></div> -->
         
         <div class="consoleDrawer" 
             :class="[   { 'position_menu' : selectedConsoleBoard == 'menu'},
@@ -36,6 +36,7 @@
                         <p>about</p>
                         <p>Théâtre Piba</p>
                         <p>krismenn.com</p>
+                        <button @click="handleClick">clear</button>
                     </div>
 
 
@@ -54,7 +55,10 @@ const selectedFilter = useState('selectedFilter', () => "all")
 const selectedBoard = useState('selectedBoard', () => "icons")
 const selectedConsoleBoard = useState('selectedConsoleBoard', () => "dashboard")
 
-
+const handleClick = () => {
+    console.log("clear")
+    localStorage.clear()
+}
 
 </script>
 <style scoped>
@@ -76,15 +80,18 @@ const selectedConsoleBoard = useState('selectedConsoleBoard', () => "dashboard")
 .consoleBoardBtn {
     width: 96px;
     height: 48px;
+    
     position: relative;
 }
 .consoleBoardBtn.inactive {
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-a);
 }
 .consoleBoardBtn.active {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 900;
+    color: var(--orange-default);
 }
 .consoleBoardBtn.inactive::after {
     content: "";
@@ -102,7 +109,9 @@ const selectedConsoleBoard = useState('selectedConsoleBoard', () => "dashboard")
     top: 60%;
     left: 30%;
     right: 30%;
-    background-color: rgba(212, 96, 0, 0.397);
+    /* background-color: rgba(212, 96, 0, 0.397); */
+    background-color: var(--color-a);
+    z-index: -1;
 }
 
 .menuBoard_centerBox {
