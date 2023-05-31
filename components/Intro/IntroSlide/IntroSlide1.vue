@@ -29,8 +29,14 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.introSlide {
+    width: 100%;
+    height: 450px;
+}
 .introTitle {
-    font-size: 100px;
+    /* width: min(650px, 100%);
+    height: min(500px, 100%); */
+    font-size: clamp(60px, 12vw, 150px);
     color: var(--orange-default);
     position: absolute;
     top: 50%;

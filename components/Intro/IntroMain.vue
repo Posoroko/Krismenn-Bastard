@@ -33,11 +33,7 @@ const changeSlide = () => {
 
 </script>
 
-<style>
-.introSlide {
-    width: 750px;
-    height: 500px;
-}
+<style scoped>
 .introContainer {
     background-color: var(--color-e);
 }

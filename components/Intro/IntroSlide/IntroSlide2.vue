@@ -26,20 +26,14 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.introTitle {
-    font-size: 100px;
-    /* color: var(--color-b); */
-    color: var(--orange-default);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    filter: blur(0.6px);
+.introSlide {
+    width: 100%;
+    height: 100%;
 }
 .introText {
-    font-size: 45px;
-    text-align: center;
+    width: min(400px, 80%);
+    font-size: clamp(28px, 3vw, 40px);
+    /* text-align: center; */
     color: var(--color-a);
     position: absolute;
     top: 50%;
