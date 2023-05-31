@@ -1,6 +1,6 @@
 <template>
     
-        <div class="introContainer absoluteFull centered" v-if="introPlaying">
+        <div class="introContainer centered" v-if="introPlaying">
             <Transition>
                 <IntroSlide1 v-if="introSlide == 1" />
             </Transition>
@@ -37,6 +37,11 @@ const changeSlide = () => {
 .introContainer {
     background-color: var(--color-e);
     overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 .introText {
     color: var(--color-a);
