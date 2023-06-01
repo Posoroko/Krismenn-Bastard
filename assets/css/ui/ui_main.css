@@ -3,7 +3,7 @@
 @import url('@/assets/css/ui/iconStyles.css');
 
 :root {
-    --page-padding: clamp(10px, 3vw, 30px);
+    --page-padding: clamp(5px, 1.5vw, 30px);
     --console-height: 180px;
 }
 

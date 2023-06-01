@@ -30,8 +30,8 @@ onMounted(() => {
 
 <style scoped>
 .introSlide {
-    width: 100%;
-    height: 450px;
+    width: min(850px, 100%);
+    height: 500px;
 }
 .introTitle {
     /* width: min(650px, 100%);

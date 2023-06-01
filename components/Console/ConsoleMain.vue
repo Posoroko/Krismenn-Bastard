@@ -33,10 +33,10 @@
                     </div>
 
                     <div class="menuTabBox flex justifyEvenly w100">
-                        <p>about</p>
-                        <p>Théâtre Piba</p>
-                        <p>krismenn.com</p>
-                        <button @click="handleClick">clear</button>
+                        <button class="menuTab consoleButton_reaction" @click="selectedBoard = 'about'">about</button>
+                        <a href="https://www.teatrpiba.bzh/en/" class="menuTab consoleButton_reaction" target="_blank">Théâtre Piba</a>
+                        <a href="https://www.krismenn.com/" class="menuTab consoleButton_reaction" target="_blank">krismenn.com</a>
+                        <!-- <button @click="handleClick">clear</button> -->
                     </div>
 
 
@@ -125,6 +125,15 @@ const handleClick = () => {
     gap: 25px;
 }
 .menuTabBox * {
-    color: #F1E897;
+    color: var(--color-a);
 }
+
+.menuTab {
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 11px 12px;
+    border-radius: 5px;
+}
+
 </style>

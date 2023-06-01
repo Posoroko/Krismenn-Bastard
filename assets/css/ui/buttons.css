@@ -6,3 +6,18 @@
     cursor: pointer;
 }
 
+.consoleButton_reaction {
+    border: 1px solid var(--color-b);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.445);
+    transition: 100ms ease;
+}
+
+.consoleButton_reaction:hover {
+    background-color: var(--color-d);
+    transition: 100ms ease;
+}
+
+.consoleButton_reaction:active {
+    background-color: var(--orange-default);
+    transition: 100ms ease;
+}

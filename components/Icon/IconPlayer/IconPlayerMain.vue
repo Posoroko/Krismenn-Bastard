@@ -1,5 +1,5 @@
 <template>
-    <button class="playerButton" :data-action="action" @click="handleClick">
+    <button class="playerButton consoleButton_reaction" :data-action="action" @click="handleClick">
         <svg version="1.1" class="playerButtonSVG ejectSVG" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             	 viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
 
@@ -63,22 +63,15 @@ const props = defineProps({
 .playerButton {
     height: 48px;
     width: 48px;
-    /* background-color: #ffffff11; */
-    background-color: #ffffff5d;
-    border: 1px solid #00000019;
     padding: 8px;
     border-radius: 8px;
     cursor: pointer;
     display: grid;
     place-items: center;
-    transition: 300ms ease;
+    transition: 100ms ease;
     pointer-events: all;
 }
-.playerButton:hover {
-    /* background-color: #9e9e9e2f; */
-    background-color: #9e9e9e60;
-    transition: 300ms ease;
-}
+
 .playerButtonSVG {
     height: 24px;
 }
@@ -86,8 +79,8 @@ const props = defineProps({
     fill: transparent;
 }
 .playerIcon_path{
-    fill: var(--color-e);
-    stroke: var(--color-e);
+    fill: var(--color-a);
+    stroke: var(--color-a);
     stroke-width: 1px;
 }
 .playButtonG.active .playerIcon_path {

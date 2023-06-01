@@ -168,7 +168,7 @@ const animateMediaText = () => {
 }
 .viewerVideo {
     /* filter: blur(0.6px) brightness(0.8) contrast(1.5); */
-    filter: blur(0.6px) brightness(0.9) sepia(50%) contrast(1);
+    filter: blur(0.6px) brightness(0.9) sepia(40%) contrast(1);
     width: 100%;
     height: 100%;
     border-radius: 10px;

@@ -31,9 +31,9 @@ onMounted(() => {
     height: 100%;
 }
 .introText {
-    width: min(400px, 80%);
+    width: min(750px, 80%);
     font-size: clamp(28px, 3vw, 40px);
-    /* text-align: center; */
+    text-align: center;
     color: var(--color-a);
     position: absolute;
     top: 50%;

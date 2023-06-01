@@ -19,7 +19,7 @@
         </div>
         <LazyBoardDoodleLayer />
         <BoardViewer />
-        <BoardMenuMain v-if="selectedBoard == 'menu'" />
+        <BoardAboutMain v-if="selectedBoard == 'about'" />
         
     </section>
 
