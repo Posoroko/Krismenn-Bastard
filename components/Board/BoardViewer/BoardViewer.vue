@@ -13,9 +13,14 @@
 
             <div class="mediaImageBackdrop centered" v-else>
                 <img class="viewerImg" v-if="selectedMedia.type == 'image'" :src="`${appConfig.directus.assets}${selectedMedia.file}?key=viewer800`" alt="">
-                <video autoplay loop class="viewerVideo" v-if="selectedMedia.type == 'video'" :src="`${appConfig.directus.assets}${selectedMedia.file}`"></video> 
+                <video autoplay loop class="viewerVideo" v-if="selectedMedia.type == 'video'" >
+                    <source :src="`${appConfig.directus.assets}${selectedMedia.file}`" type="video/webm">
+
+                    Your browser does not support the video format try with firefox.
+                </video> 
+
+                <!-- <video autoplay loop class="viewerVideo" v-if="selectedMedia.type == 'video'" src="/videos/road_1067x600.webm"></video>  -->
             </div>
-            
         </div>
     </div>
 </template>
@@ -99,26 +104,27 @@ const animateMediaText = () => {
 .boardViewer_contentBox {
     width: 100%;
     height: 100%;
-    
-    background-color: rgba(0, 0, 0, 0.26);
     padding: 5px;
-    /* border-radius: 25px; */
+    border: 2px solid rgba(26, 18, 11, 0.596);
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.285);
+    box-shadow: inset 0px 0px 15px rgba(0, 0, 0, 0.473);
     pointer-events: none;
     overflow: hidden;
 }
 .mediaText {
-    
-    
     padding: 20px;
     font-size: 18px;
     font-weight: 700;
     white-space: pre-wrap;
-    overflow: scroll;
+    /* overflow: scroll; */
+    
 }
 .mediaImageBackdrop {
     width: min(800px, 100%);
     height: min(600px, 100%);
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.514);
+    border-radius: 10px;
+    overflow: hidden;
 }
 .mediaTextBackdrop {
     width: min(450px, 100%);
@@ -128,6 +134,9 @@ const animateMediaText = () => {
     /* animation: flicker 28ms infinite; */
     text-shadow: 1px 1px 2px rgba(255, 218, 188, 0.678);
     filter: blur(0.5px) brightness(0.9) contrast(2);
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.514);
+    border-radius: 10px;
+    background-image: url('/textures/grain.png');
 }
 
 @keyframes flicker {
@@ -168,7 +177,7 @@ const animateMediaText = () => {
 }
 .viewerVideo {
     /* filter: blur(0.6px) brightness(0.8) contrast(1.5); */
-    filter: blur(0.6px) brightness(0.9) sepia(40%) contrast(1);
+    filter: blur(0.6px) brightness(1) sepia(20%) contrast(1.2);
     width: 100%;
     height: 100%;
     border-radius: 10px;

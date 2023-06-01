@@ -1,14 +1,18 @@
 <template>
     <div class="introSlide absolute centered">
         <p class="introText">
-            Un cahier, des notes, des idées, pêle-mêle...  Dans la constructin d'un spectacle, le idées floues sont maitresses.
+            {{ introTexts.mysteryQuote[language] }}
         </p>
     </div>
 </template>
 
 <script setup>
+import { introTexts } from '@/assets/content/texts'
 const introSlide = useState('introSlide', () => 1)
 const introPlaying = useState('introPlaying', () => true)
+const language = useState('language', () => "fr")
+
+
 const slideShow = () => {
     introSlide.value = 2
     console.log('slideShow')

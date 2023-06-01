@@ -1,6 +1,6 @@
 <template>
     <div class="introSlide absolute centered" >
-        <video autoplay loop class="introVideo" src="/videos/road_1067x600.webm"></video>
+        <video autoplay muted loop class="introVideo" src="/videos/road_1067x600.webm" type="video/webm"></video>
 
         <h1 class="introTitle video bastard">BASTARD</h1>
         <h1 class="introTitle video krismenn">KRISMENN</h1>
@@ -70,7 +70,7 @@ onMounted(() => {
     height: 100%;
     border-radius: 10px;
     object-fit: cover;
-    filter: brightness(0.9) blur(0.6px) contrast(1.3);
+    filter: brightness(0.9) blur(0.5px) contrast(1.3);
 }
 .introTitle.video {
     mix-blend-mode: color-dodge;

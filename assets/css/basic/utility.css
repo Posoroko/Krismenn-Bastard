@@ -45,8 +45,10 @@
 .centered {display: grid;place-items: center;}
 
 .r {border: 1px solid red;}
-.b {border: 1px solid blue;}
-.g {border: 1px solid green;}
+.rr {outline: 1px solid red;
+}
+.b {outline: 1px solid blue;}
+.g {outline: 1px solid green;}
 
 
 .relative {position: relative;}

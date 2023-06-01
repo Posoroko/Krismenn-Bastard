@@ -41,3 +41,7 @@ export const useIntroPlaying = () => {
 export const useIntroSlide = () => {
     return useState<number>('introSlide', () => 1)
 }
+
+export const useLanguage = () => {
+    return useState<string>('language', () => "fr")
+}
