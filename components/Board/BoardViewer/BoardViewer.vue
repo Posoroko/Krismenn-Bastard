@@ -13,10 +13,9 @@
 
             <div class="mediaImageBackdrop centered" v-else>
                 <img class="viewerImg" v-if="selectedMedia.type == 'image'" :src="`${appConfig.directus.assets}${selectedMedia.file}?key=viewer800`" alt="">
-                <video autoplay loop class="viewerVideo" v-if="selectedMedia.type == 'video'" >
-                    <source :src="`${appConfig.directus.assets}${selectedMedia.file}`" type="video/webm">
 
-                    Your browser does not support the video format try with firefox.
+                <video autoplay muted loop class="viewerVideo" v-if="selectedMedia.type == 'video'" >
+                    <source :src="`${appConfig.directus.assets}${selectedMedia.file}`" type="video/webm">
                 </video> 
 
                 <!-- <video autoplay loop class="viewerVideo" v-if="selectedMedia.type == 'video'" src="/videos/road_1067x600.webm"></video>  -->

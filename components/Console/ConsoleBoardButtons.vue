@@ -1,0 +1,69 @@
+<template>
+    <div class="topBox flex w100 justifyCenter gap10">
+        <button class="consoleBoardBtn bastard" :class="[selectedConsoleBoard == 'dashboard' ?  'active' : 'inactive']" data-name="dashboard" @click="handleClick">
+            BASTARD
+        </button>
+
+        <button class="consoleBoardBtn menu" :class="[selectedConsoleBoard == 'menu' ? 'active' : 'inactive']" data-name="menu"  @click="handleClick">
+            MENU
+        </button>
+    </div>
+
+</template>
+<script setup>
+const selectedBoard = useState('selectedBoard', () => "icons")
+const selectedConsoleBoard = useState('selectedConsoleBoard', () => "dashboard")
+
+const handleClick = (e) => {
+    selectedConsoleBoard.value = e.target.dataset.name
+}
+</script>
+<style scoped>
+.consoleBoardBtn {
+    width: 120px;
+    padding: 5px 0px;
+    border: 1px solid var(--color-a);
+    border-radius: 5px;
+    position: relative;
+}
+.consoleBoardBtn.inactive {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--color-a);
+    opacity: 0.5;
+    cursor: pointer;
+}
+.consoleBoardBtn.active {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--orange-default);
+}
+
+.consoleBoardBtn::after {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+}
+.consoleBoardBtn.bastard::after {
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+}
+.consoleBoardBtn.menu::after {
+    top: 50%;
+    right: 0%;
+    transform: translate(100%, -50%);
+}
+.consoleBoardBtn.inactive::after {
+    background-color: white;
+}
+.consoleBoardBtn.active::after {
+    background-color: rgb(255, 198, 198);
+    box-shadow: 0 0 10px 2px rgba(255, 108, 108, 0.562);
+    border: 1px solid rgba(247, 22, 22, 0.452);
+}
+</style>

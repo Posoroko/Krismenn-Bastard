@@ -1,5 +1,5 @@
 <template>
-    <div class="aboutContainer absoluteFull centered">
+    <div class="aboutContainer absoluteFull centered pad10">
         <div class="aboutBox relative flex column gap20 pad20">
             <h2 class=" aboutTitle">BASTARD</h2>
 
@@ -37,6 +37,11 @@
                         <IconMiscStreaming name="instagram" />
                     </a>
                 </div>
+            </div>
+
+            <div>
+                <p>dev. : <a href="https://www.posoroko.com">posoroko</a></p>
+                <p>design. : <a href="https://www.instagram.com/fractale_veloce/"></a>fractale_veloce</p>
             </div>
 
             <span @click="closeBoard" class="icon topRightButton">close</span>

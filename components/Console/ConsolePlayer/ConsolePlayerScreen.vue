@@ -1,6 +1,6 @@
 <template>
-    <div class="playerScreenBox relative h100">
-        <ul class="playerScreenText flex column justifyEvenly h100" v-if="selectedMedia.id">
+    <div class="playerScreenBox relative">
+        <ul class="playerScreenText flex column justifyEvenly" v-if="selectedMedia.id">
             <li> <span>id: </span> <span>{{ `${selectedMedia.id.slice(0, 6)}.bst` }}</span></li>
             <li><span>type: </span><span>{{ selectedMedia.type }}</span></li>
             <li><span>titre: </span><span>{{ selectedMedia.title }}</span></li>
@@ -14,7 +14,7 @@ const selectedMedia = useState('selectedMedia', () => { return { id: "", title: 
 <style scoped>
 .playerScreenBox {
     width: min(200px, 100%);
-    /* height: 40px; */
+    height: 100px;
     
     background-color: var(--color-a);
     border-radius: 5px;
