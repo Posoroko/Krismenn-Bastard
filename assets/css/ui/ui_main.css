@@ -9,10 +9,35 @@
 
 
 .bastardAppContainer {
-    height: 100vh;
     padding: var(--page-padding);
+    border: 1px solid var(--color-d);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     gap: var(--page-padding);
 }
+
+@media (hover: none){
+
+    @media (orientation:portrait){
+        .bastardAppContainer {
+            width: 100vw;
+            height: 100vh;
+        }
+    }
+
+    @media (orientation:landscape) {
+        .bastardAppContainer {
+            max-width: 100vh;
+            height: 100vw;
+        }
+    }
+}
+@media (hover: hover){
+
+    .bastardAppContainer {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+

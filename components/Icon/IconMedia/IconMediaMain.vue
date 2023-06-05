@@ -70,7 +70,6 @@ const handleIconSelection = () => {
 .mediaIconSVGBox {
     height: 52px;
     width: 52px;
-    cursor: pointer;
 }
 .selectionCircleBox {
     position: absolute;

@@ -20,6 +20,7 @@
 
 <script setup>
 const language = useState('language', () => "fr")
+const selectedBoard = useState('selectedBoard', () => "about")
 
 
 </script>

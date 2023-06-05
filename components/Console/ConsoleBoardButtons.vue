@@ -1,10 +1,10 @@
 <template>
-    <div class="topBox flex w100 justifyCenter gap10">
-        <button class="consoleBoardBtn bastard" :class="[selectedConsoleBoard == 'dashboard' ?  'active' : 'inactive']" data-name="dashboard" @click="handleClick">
+    <div class="topBox flex w100 justifyCenter gap10 pad5">
+        <button class="consoleBoardBtn consoleButton_reaction consoleButton_basicStyles bastard" :class="[selectedConsoleBoard == 'dashboard' ?  'active' : 'inactive']" data-name="dashboard" @click="handleClick">
             BASTARD
         </button>
 
-        <button class="consoleBoardBtn menu" :class="[selectedConsoleBoard == 'menu' ? 'active' : 'inactive']" data-name="menu"  @click="handleClick">
+        <button class="consoleBoardBtn consoleButton_reaction consoleButton_basicStyles menu" :class="[selectedConsoleBoard == 'menu' ? 'active' : 'inactive']" data-name="menu"  @click="handleClick">
             MENU
         </button>
     </div>
@@ -20,10 +20,9 @@ const handleClick = (e) => {
 </script>
 <style scoped>
 .consoleBoardBtn {
-    width: 120px;
+    width: 140px;
     padding: 5px 0px;
-    border: 1px solid var(--color-a);
-    border-radius: 5px;
+    isolation: isolate;
     position: relative;
 }
 .consoleBoardBtn.inactive {
@@ -38,7 +37,12 @@ const handleClick = (e) => {
     font-weight: 900;
     color: var(--orange-default);
 }
-
+.consoleBoardBtn.bastard {
+    padding-left: 25px;
+}
+.consoleBoardBtn.menu {
+    padding-right: 25px;
+}
 .consoleBoardBtn::after {
     content: '';
     display: inline-block;
@@ -50,13 +54,13 @@ const handleClick = (e) => {
 }
 .consoleBoardBtn.bastard::after {
     top: 50%;
-    left: 0;
-    transform: translate(-100%, -50%);
+    left: 10px;
+    transform: translate(-0%, -50%);
 }
 .consoleBoardBtn.menu::after {
     top: 50%;
-    right: 0%;
-    transform: translate(100%, -50%);
+    right: 10px;
+    transform: translate(0%, -50%);
 }
 .consoleBoardBtn.inactive::after {
     background-color: white;

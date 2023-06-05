@@ -1,5 +1,5 @@
 <template>
-    <div class="" @click="handleIconSelection">
+    <div class="" @click="handleIconSelection" v-if="mediaType" :class="{'pointer' : mediaType}">
         <img src="/images/icons/round2.png" class="mediaIconImg" v-if="mediaType == 'image'" alt="">
 
         <img src="/images/icons/triangle1.png" class="mediaIconImg" v-if="mediaType == 'text'" alt="">

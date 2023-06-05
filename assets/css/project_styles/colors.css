@@ -20,12 +20,7 @@
     --backdrop: #3F3B36;
 }
 
-body {
-    /* background-color: var(--color-e); */
-
-    /* background-color: rgb(31, 31, 31); */
-    /* background-color: #333333; */
-    
+body {    
     background-image: url("https://www.transparenttextures.com/patterns/az-subtle.png");
     background: radial-gradient(circle, rgb(22, 31, 29) 0%, rgb(31, 31, 31) 100%);
 }

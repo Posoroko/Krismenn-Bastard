@@ -14,7 +14,7 @@
             <div class="mediaImageBackdrop centered" v-else>
                 <img class="viewerImg" v-if="selectedMedia.type == 'image'" :src="`${appConfig.directus.assets}${selectedMedia.file}?key=viewer800`" alt="">
 
-                <video autoplay muted loop class="viewerVideo" v-if="selectedMedia.type == 'video'" >
+                <video autoplay playsinline muted loop class="viewerVideo" v-if="selectedMedia.type == 'video'" >
                     <source :src="`${appConfig.directus.assets}${selectedMedia.file}`" type="video/webm">
                 </video> 
 
@@ -119,18 +119,16 @@ const animateMediaText = () => {
     
 }
 .mediaImageBackdrop {
-    width: min(800px, 100%);
-    height: min(600px, 100%);
-    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.514);
-    border-radius: 10px;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
+
 .mediaTextBackdrop {
     width: min(450px, 100%);
     height: min(600px, 100%);
     background-color: var(--color-a);
     border-radius: 10px;
-    /* animation: flicker 28ms infinite; */
+    animation: flicker 28ms infinite;
     text-shadow: 1px 1px 2px rgba(255, 218, 188, 0.678);
     filter: blur(0.5px) brightness(0.9) contrast(2);
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.514);
@@ -155,30 +153,29 @@ const animateMediaText = () => {
 @keyframes imageFlicker {
     0% {
         /* opacity: 0.98; */
-        filter: blur(0.6px) brightness(0.9) sepia(50%) contrast(1);
+        filter: blur(0.1px) brightness(0.9) sepia(50%) contrast(1);
     }
     50% {
         /* opacity: 1; */
-        filter: blur(0.6px) brightness(0.9) sepia(50%) contrast(1);
+        filter: blur(0.6px) brightness(0.9) sepia(50%) contrast(1.1);
     }
     100% {
         /* opacity: 0.98; */
-        filter: blur(0.6px) brightness(0.9) sepia(50%) contrast(1);
+        filter: blur(0.1px) brightness(0.9) sepia(50%) contrast(1);
     }
 }
 .viewerImg{
-    width: 100%;
-    height: 100%;
+    width: min(600px, 100%);
+    height: min(450px, 100%);
     border-radius: 10px;
     object-fit: contain;
-    /* animation: imageFlicker 45ms infinite; */
-    filter: blur(0.6px) brightness(0.9) sepia(50%) contrast(1);
+    filter: blur(0.1px) brightness(0.9) sepia(50%) contrast(1) drop-shadow(1px 2px 10px rgba(0, 0, 0, 0.514));
+    animation: imageFlicker 28ms infinite;
 }
 .viewerVideo {
-    /* filter: blur(0.6px) brightness(0.8) contrast(1.5); */
-    filter: blur(0.6px) brightness(1) sepia(20%) contrast(1.2);
-    width: 100%;
-    height: 100%;
+    filter: blur(0.6px) brightness(1) sepia(20%) contrast(1.2) drop-shadow(1px 2px 10px rgba(0, 0, 0, 0.514));
+    width: min(600px, 100%);
+    height: min(450px, 100%);
     border-radius: 10px;
     object-fit: cover;
     animation: flicker 28ms infinite;

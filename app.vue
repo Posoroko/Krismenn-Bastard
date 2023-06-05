@@ -7,6 +7,12 @@
 </template>
 
 <script setup>
+screen.orientation.lock('portrait-primary').then(() => {
+    console.log('promise!')
+  console.log('Orientation locked')
+}).catch((err) => {
+  console.log(err)
+})
 
 
 

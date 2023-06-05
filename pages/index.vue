@@ -1,7 +1,7 @@
 <template>
     <main class="bastardAppContainer mainWidth">
-        <BoardMain />
-        <ConsoleMain />
+        <LazyBoardMain />
+        <LazyConsoleMain />
     </main>
 </template>
 
