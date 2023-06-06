@@ -1,5 +1,5 @@
 <template>
-    <div class="consolePlayerBox flex w100 alignCenter justifyEvenly">
+    <div class="consolePlayerBox flex w100 alignCenter justifyCenter gap20">
         <IconPlayerMain action="play" />
 
         <ConsolePlayerScreen />

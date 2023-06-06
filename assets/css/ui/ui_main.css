@@ -10,11 +10,13 @@
 
 .bastardAppContainer {
     padding: var(--page-padding);
-    border: 1px solid var(--color-d);
+    /* border: 1px solid var(--color-d); */
+    /* box-shadow:  0 0 10px rgba(0, 0, 0, 0.514), inset 0 0 10px rgba(43, 43, 43, 0.514); */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    gap: var(--page-padding);
+    gap: min(var(--page-padding), 10px);
+    /* background-color: #140f0f27; */
 }
 
 @media (hover: none){

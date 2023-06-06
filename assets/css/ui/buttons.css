@@ -10,7 +10,10 @@
     border: 1px solid rgba(255, 255, 255, 0.082);
     border-radius: 5px;
 }
-
+.consoleButton_basicStyles.active {
+    background-color: var(--color-d);
+    border: 1px solid var(--color-d);
+}
 .consoleButton_reaction {
     box-shadow: 
         -1px -1px 2px rgba(136, 136, 136, 0.068), 
@@ -27,6 +30,6 @@
 }
 
 .consoleButton_reaction:active {
-    background-color: var(--orange-default);
+    /* background-color: var(--orange-default); */
     transition: 100ms ease;
 }
