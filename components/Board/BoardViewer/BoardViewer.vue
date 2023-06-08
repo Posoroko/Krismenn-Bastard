@@ -14,7 +14,7 @@
             <div class="mediaImageBackdrop centered" v-else>
                 <img class="viewerImg" v-if="selectedMedia.type == 'image'" :src="`${appConfig.directus.assets}${selectedMedia.file}?key=viewer800`" alt="">
 
-                <video autoplay muted loop class="viewerVideo" v-if="selectedMedia.type == 'video'" >
+                <video autoplay playsinline muted loop class="viewerVideo" v-if="selectedMedia.type == 'video'" >
                     <source :src="`${appConfig.directus.assets}${selectedMedia.file}`" type="video/webm">
                 </video> 
 
