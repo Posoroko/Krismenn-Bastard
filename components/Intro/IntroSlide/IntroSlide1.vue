@@ -1,6 +1,6 @@
 <template>
     <div class="introSlide absolute centered" >
-        <video autoplay muted loop class="introVideo" src="/videos/road_1067x600.webm" type="video/webm"></video>
+        <video autoplay playsinline muted loop class="introVideo" src="/videos/road_1067x600.webm" type="video/webm"></video>
 
         <h1 class="introTitle video bastard">BASTARD</h1>
         <h1 class="introTitle video krismenn">KRISMENN</h1>
