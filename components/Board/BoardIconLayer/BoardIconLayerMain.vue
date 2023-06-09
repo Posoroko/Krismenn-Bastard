@@ -11,7 +11,8 @@
                             :mediaId="media.id"
                             :mediaType="media.type"
                             :pageIndex="pageIndex"
-                            :iconIndex="iconIndex"/>
+                            :iconIndex="iconIndex"
+                            :mediaIsSelected="selectedMedia.id === media.id"/>
                     </div>
                 </div>  
             </div>
@@ -28,6 +29,8 @@ const selectedMedia = useState('selectedMedia', () => { return { id: "", title: 
 
 const maxPage = useState('maxPage', () => 0)
 const mediaCollection = useState('mediaCollection', () => [])
+
+
 
 const props = defineProps({
     selectedIconPage: {

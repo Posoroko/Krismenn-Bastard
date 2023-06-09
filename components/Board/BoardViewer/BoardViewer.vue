@@ -60,12 +60,12 @@ const animateMediaText = () => {
     }
     const randomDelay = () => {
         let delay = Math.floor(Math.random() * 200)
-        console.log(delay)
         return delay
     }
     let counter = 0
+
     const slowlyAppendSpans = () => {
-        if (counter < text_array.value.length) {
+        if (mediaText.value && counter < text_array.value.length) {
             mediaText.value.append(newSpan(text_array.value[counter]))
             counter++
             setTimeout(slowlyAppendSpans, randomDelay())

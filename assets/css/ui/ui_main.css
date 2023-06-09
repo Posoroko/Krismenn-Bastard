@@ -17,6 +17,7 @@
     justify-content: flex-end;
     gap: min(var(--page-padding), 10px);
     /* background-color: #140f0f27; */
+    cursor: url('/cursors/CURS14.png'), auto;
 }
 
 @media (hover: none){

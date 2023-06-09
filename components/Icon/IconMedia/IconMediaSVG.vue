@@ -5,19 +5,27 @@
         <img src="/images/icons/triangle1.png" class="mediaIconImg" v-if="mediaType == 'text'" alt="">
 
         <img src="/images/icons/square1.png" class="mediaIconImg" v-if="mediaType == 'video'" alt="">
+
+        <div class="selectionCircleBox" v-if="mediaIsSelected">
+            <img src="/images/doodles/selection-circle.png" class="objectFitContained" alt="">
+        </div>
     </div>
 </template>
 
 
 <script setup>
+const mediaCollection = useState('mediaCollection', () => [])
+const selectedMedia = useState('selectedMedia', () => { return { id: "", title: "", type: "", file: "" } })
+
 const props = defineProps({
-    mediaType: String
+    mediaType: String,
+    mediaIsSelected: Boolean,
+    pageIndex: Number,
+    iconIndex: Number
 })
 
-const emit = defineEmits(['iconSelected'])
-
 const handleIconSelection = () => {
-    emit('iconSelected')
+    selectedMedia.value = mediaCollection.value[props.pageIndex][props.iconIndex]
 }
 
 </script>
@@ -51,5 +59,16 @@ const handleIconSelection = () => {
 
 .iconSVG_path {
     transition: 300ms ease;
+}
+
+.selectionCircleBox {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    position: absolute;
+    height: min(84px, 100%);
+    aspect-ratio: 1/1;
+    pointer-events: none;
 }
 </style>

@@ -9,7 +9,11 @@
 </template>
 <script setup>
 const selectedMedia = useState('selectedMedia', () => { return { id: "", title: "", type: "", file: "" } })
+
+
 </script>
+
+
 
 <style scoped>
 .playerScreenBox {

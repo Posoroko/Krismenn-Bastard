@@ -65,7 +65,10 @@
 .bottom0 {bottom: 0;}
 .bottom50 {bottom: 0;}
 
-.pointer {cursor: pointer;}
+.pointer {
+    /* cursor: pointer; */
+cursor: url('/cursors/pointer4.png'), auto;
+}
 
 .relative {position: relative;}
 .absolute {position: absolute;}
